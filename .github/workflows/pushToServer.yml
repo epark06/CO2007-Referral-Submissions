@@ -41,16 +41,12 @@ jobs:
       # This is a composite GitHub Action (Linux runner) 
       # for deploying repository content to remote server
       - name: SFTP-Deploy-Action
-        uses: milanmk/actions-file-deployer@master
-        with:
-          remote-protocol: sftp
-
-          # Credentials for SFTP access to server using GitHub secrets
-          remote-host: ${{ secrets.FTP_HOST }}
-          remote-user: ${{ secrets.FTP_USER }}
-          remote-password: ${{ secrets.FTP_PASSWORD }}
-          ssh-private-key: ""
-          ssh-known-hosts: ${{ secrets.FTP_KNOWN_HOSTS }}
-
-          # Path for specific folder on server for files deployment
-          remote-path: /public_html/CO2007-assignment
+        uses: atmoz/sftp-deploy@v2 
+        with: 
+          # SFTP Credentials here
+          host: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: .
+          remote-dir: /public_html/CO2007-assignment
+          known-hosts: ${{ secrets.FTP_KNOWN_HOSTS }}
