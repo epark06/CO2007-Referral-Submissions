@@ -53,4 +53,4 @@ jobs:
           settings: 'sftp:auto-confirm=yes'
           # Mirror command options
           localDir: '.'
-          remoteDir: '/public_html/CO2007-assignment'
+          remoteDir: 'public_html/CO2007-assignment'
