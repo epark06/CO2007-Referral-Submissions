@@ -50,6 +50,7 @@ jobs:
           remote-user: ${{ secrets.FTP_USER }}
           remote-password: ${{ secrets.FTP_PASSWORD }}
           ssh-private-key: ""
+          ssh-known-hosts: ${{ secrets.FTP_KNOWN_HOSTS }}
 
           # Path for specific folder on server for files deployment
           remote-path: /public_html/CO2007-assignment
