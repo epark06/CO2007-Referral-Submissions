@@ -41,13 +41,12 @@ jobs:
       # This is a composite GitHub Action (Linux runner) 
       # for deploying repository content to remote server
       - name: SFTP-Deploy-Action
-        uses: wlixcc/SFTP-Deploy-Action@master
+        uses: SamKirkland/FTP-Deploy-Action@v4
         with: 
           server: ${{ secrets.FTP_HOST }}
-          port: 22
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local_path: "./"
-          remote_path: "/public_html/CO2007-assignment"
-          sftp_only: true
-          ssh_keyscan: true
+          protocol: sftp
+          port: 22
+          local-dir: .
+          server-dir: /public_html/CO2007-assignment
