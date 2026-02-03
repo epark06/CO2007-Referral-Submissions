@@ -41,12 +41,16 @@ jobs:
       # This is a composite GitHub Action (Linux runner) 
       # for deploying repository content to remote server
       - name: SFTP-Deploy-Action
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+        uses: pressidium/lftp-mirror-action@v1
         with: 
-          server: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USER }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          protocol: sftp
+          # SFTP Creentials
+          host: ${{ secrets.FTP_HOST }}
+          user: ${{ secrets.FTP_USER }}
+          pass: ${{ secrets.FTP_PASSWORD }}
           port: 22
-          local-dir: .
-          server-dir: /public_html/CO2007-assignment
+          # lftp Settings
+          onlyNewer: true
+          settings: 'sftp:auto-confirm=yes'
+          # Mirror command options
+          localDir: '.'
+          remoteDir: '/public_html/CO2007-assignment'
