@@ -16,11 +16,22 @@ jobs:
 
   # This workflow contains a single job called "SFTP-Deploy-Action"
   SFTP-Deploy-Action:
-    name: SFTP-Deploy-Action
+    name: Deploy to ${{ matrix.target }}
 
     # The type of runner that the job will run on 
     # (depends on server but usually this value works)
     runs-on: ubuntu-latest
+
+    # Defines matrix of SFTP secrets for collaborators
+    strategy:
+      matrix:
+        include:
+          - target: epark06
+            user-secret: FTP_USER
+            pass-secret: FTP_PASS
+          - target: Jackbilsborrow
+            user-secret: FTP_USER_J
+            pass-secret: FTP_PASS_J
 
     # Steps represent a sequence of tasks 
     # that will be executed as part of the job
@@ -41,12 +52,16 @@ jobs:
       # This is a composite GitHub Action (Linux runner) 
       # for deploying repository content to remote server
       - name: SFTP-Deploy-Action
+        env:
+          # Cleaner to prevent warnings about context access restrictions
+          CURRENT_USER: ${{ matrix.user-secret }}
+          CURRENT_PASS: ${{ matrix.pass-secret }}
         uses: pressidium/lftp-mirror-action@v1
         with: 
           # SFTP Creentials
           host: ${{ secrets.FTP_HOST }}
-          user: ${{ secrets.FTP_USER }}
-          pass: ${{ secrets.FTP_PASSWORD }}
+          user: ${{ env.CURRENT_USER }}
+          pass: ${{ env.CURRENT_PASS }}
           port: 22
           # lftp Settings
           onlyNewer: true
