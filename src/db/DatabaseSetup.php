@@ -26,7 +26,7 @@ class DatabaseSetup {
      */
     public function createDatabaseSchema() : ?string {
         $succesStates = [
-            "co2007_referral" => $this->createClothingTable()
+            "co2007_referral" => $this->createReferralTable()
         ];
 
         if(in_array(null, $succesStates)) {
@@ -71,12 +71,15 @@ class DatabaseSetup {
      * Private function to create the co2007_referral table.
      * @return int|null Returns 1 on success, returns `null` on fail
      */
-    private function createClothingTable() : ?int {
+    private function createReferralTable() : ?int {
         $sql = <<<SQL
         CREATE TABLE IF NOT EXISTS co2007_referral (
             referral_id INT PRIMARY KEY,
             pyhysician_name VARCHAR(30) NOT NULL,
             clinic_name VARCHAR(30) NOT NULL,
+            patient_phone_no VARCHAR(15) NOT NULL,
+            patient_email VARCHAR(40) NOT NULL,
+            fax_no VARCHAR(13),
             patient_name VARCHAR(30) NOT NULL,
             patient_dob DATE NOT NULL,
             urgency_level VARCHAR(30) NOT NULL,
@@ -91,6 +94,23 @@ class DatabaseSetup {
         echo ($tableCreated && TESTING) ? $successMsg : (TESTING ? $failMsg : "");
 
         return $tableCreated ? 1 : null;
+    }
+
+    /**
+     * Function to drop the co2007_referral table.
+     * @return int|null Returns 1 on success, returns `null` on fail
+     */
+    public function dropReferralTable() : ?int {
+        $sql = <<<SQL
+        DROP TABLE IF EXISTS co2007_referral;
+        SQL;
+
+        $tableDropped = $this->sqlExec($sql);
+        $successMsg = "Sucessfully dropped 'co2007_referral' table.</br>";
+        $failMsg = "Failed to drop 'co2007_referral' table.</br>";
+        echo ($tableDropped && TESTING) ? $successMsg : (TESTING ? $failMsg : "");
+
+        return $tableDropped ? 1 : null;
     }
 }
 
