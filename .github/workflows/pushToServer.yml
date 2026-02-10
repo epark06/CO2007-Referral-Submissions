@@ -40,7 +40,7 @@ jobs:
             pass-secret: FTP_PASSWORD_L
           - target: ismaix7
             user-secret: FTP_USER_I
-            pass-secret: FPT_PASSWORD_I
+            pass-secret: FTP_PASSWORD_I
 
     # Steps represent a sequence of tasks 
     # that will be executed as part of the job
