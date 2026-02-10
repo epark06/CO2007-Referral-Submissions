@@ -52,16 +52,12 @@ jobs:
       # This is a composite GitHub Action (Linux runner) 
       # for deploying repository content to remote server
       - name: SFTP-Deploy-Action
-        env:
-          # Cleaner to prevent warnings about context access restrictions
-          CURRENT_USER: ${{ matrix.user-secret }}
-          CURRENT_PASS: ${{ matrix.pass-secret }}
         uses: pressidium/lftp-mirror-action@v1
         with: 
           # SFTP Creentials
           host: ${{ secrets.FTP_HOST }}
-          user: ${{ env.CURRENT_USER }}
-          pass: ${{ env.CURRENT_PASS }}
+          user: ${{ secrets[matrix.user-secret] }}
+          pass: ${{ secrets[matrix.pass-secret] }}
           port: 22
           # lftp Settings
           onlyNewer: true
