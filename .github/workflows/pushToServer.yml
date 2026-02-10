@@ -28,10 +28,10 @@ jobs:
         include:
           - target: epark06
             user-secret: FTP_USER
-            pass-secret: FTP_PASS
+            pass-secret: FTP_PASSWORD
           - target: Jackbilsborrow
             user-secret: FTP_USER_J
-            pass-secret: FTP_PASS_J
+            pass-secret: FTP_PASSWORD_J
 
     # Steps represent a sequence of tasks 
     # that will be executed as part of the job
