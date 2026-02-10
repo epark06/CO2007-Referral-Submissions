@@ -75,7 +75,7 @@ class DatabaseSetup {
         $sql = <<<SQL
         CREATE TABLE IF NOT EXISTS co2007_referral (
             referral_id INT PRIMARY KEY,
-            pyhysician_name VARCHAR(30) NOT NULL,
+            physician_name VARCHAR(30) NOT NULL,
             clinic_name VARCHAR(30) NOT NULL,
             patient_phone_no VARCHAR(15) NOT NULL,
             patient_email VARCHAR(40) NOT NULL,
