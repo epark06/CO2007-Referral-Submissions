@@ -13,6 +13,7 @@ echo "<h1>SCHEMA INIT</h1>";
 
 // Creates the co2007_referral table
 $setup = new DatabaseSetup($pdo);
+$setup->dropReferralTable();
 // Only truthy in event of failure
 $schemaFail = $setup->createDatabaseSchema();
 
