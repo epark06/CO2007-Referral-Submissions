@@ -9,6 +9,9 @@ on:
   # but only for the specific branch
   push:
     branches: [ main ]
+  
+  # Allows the workflow to be triggered manually
+  workflow_dispatch:
 
 # A workflow run is made up of one or more jobs 
 # that can run sequentially or in parallel
