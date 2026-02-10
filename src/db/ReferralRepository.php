@@ -105,14 +105,14 @@ class ReferralRepository {
         $sql = <<<SQL
         INSERT INTO co2007_referral(referral_id, physician_name, clinic_name, patient_phone_no, 
         patient_email, fax_no, patient_name, patient_dob, urgency_level, referral_reason)
-        SELECT * FROM (SELECT :rreferal_id0, :rphysician_name, :rclinic_name, :rpatient_phone_no,
-        :rpatient_email, :rfax_no, :rpatient_name, :rpatient_dob, :rurgency_level, :rreferral_reason)
-        WHERE NOT EXISTS (SELECT referral_id FROM co2007_referral WHERE referral_id != :rreferal_id1);
+        SELECT * FROM (SELECT :rreferral_id0, :rphysician_name, :rclinic_name, :rpatient_phone_no,
+        :rpatient_email, :rfax_no, :rpatient_name, :rpatient_dob, :rurgency_level, :rreferral_reason) AS tmp
+        WHERE NOT EXISTS (SELECT referral_id FROM co2007_referral WHERE referral_id = :rreferral_id1);
         SQL;
 
         $stmt = $this->pdo->prepare($sql);
 
-        $stmt->bindParam(":rreferal_id0", $args["referral_id"], PDO::PARAM_INT);
+        $stmt->bindParam(":rreferral_id0", $args["referral_id"], PDO::PARAM_INT);
         $stmt->bindParam(":rphysician_name", $args["physician_name"], PDO::PARAM_STR);
         $stmt->bindParam(":rclinic_name", $args["clinic_name"], PDO::PARAM_STR);
         $stmt->bindParam(":rpatient_phone_no", $args["patient_phone_no"], PDO::PARAM_STR);
@@ -122,7 +122,7 @@ class ReferralRepository {
         $stmt->bindParam(":rpatient_dob", $args["patient_dob"], PDO::PARAM_STR);
         $stmt->bindParam(":rurgency_level", $args["urgency_level"], PDO::PARAM_STR);
         $stmt->bindParam(":rreferral_reason", $args["referral_reason"], PDO::PARAM_STR);
-        $stmt->bindParam(":rreferal_id1", $args["referral_id"], PDO::PARAM_INT);
+        $stmt->bindParam(":rreferral_id1", $args["referral_id"], PDO::PARAM_INT);
 
         if($this->sqlExecute($stmt)) {
             $id = (int) $this->pdo->lastInsertId();
