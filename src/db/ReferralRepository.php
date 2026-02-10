@@ -125,9 +125,8 @@ class ReferralRepository {
         $stmt->bindParam(":rreferral_id1", $args["referral_id"], PDO::PARAM_INT);
 
         if($this->sqlExecute($stmt)) {
-            $id = (int) $this->pdo->lastInsertId();
-            echo $this->insertOutput("co2007_referral", $id);
-            return $id;
+            echo $this->insertOutput("co2007_referral", $args["referral_id"]);
+            return $args["referral_id"];
         }
 
         return null;
