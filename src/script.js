@@ -1,7 +1,11 @@
+<<<<<<< HEAD
 // Add these to the top of script.js with your other selections
 const errorBanner = document.getElementById("errorBanner");
 const closeBanner = document.getElementById("closeBanner");
 const form = document.getElementById("referralForm");
+=======
+﻿    const form = document.getElementById("referralForm");
+>>>>>>> 2dbf9c6c586d99f3602abb55a764018e33a6f20a
 const progressBar = document.getElementById("progressBar");
 
 const fields = {
@@ -179,3 +183,44 @@ form.addEventListener("submit", e => {
 
 // Initialise
 validateAllFields();
+
+/* Dark mode toggle: stores preference in localStorage, respects system preference */
+(function () {
+    const toggle = document.getElementById('themeToggle');
+    const stored = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const initial = stored || (systemPrefersDark ? 'dark' : 'light');
+
+    function applyTheme(theme) {
+        if (theme === 'dark') {
+            document.body.classList.add('dark-mode');
+            if (toggle) {
+                toggle.textContent = '☀️ Light';
+                toggle.setAttribute('aria-pressed', 'true');
+            }
+        } else {
+            document.body.classList.remove('dark-mode');
+            if (toggle) {
+                toggle.textContent = '🌙 Dark';
+                toggle.setAttribute('aria-pressed', 'false');
+            }
+        }
+    }
+
+    applyTheme(initial);
+
+    if (toggle) {
+        toggle.addEventListener('click', () => {
+            const newTheme = document.body.classList.contains('dark-mode') ? 'light' : 'dark';
+            applyTheme(newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    }
+
+    // Optional: react to system preference changes if user hasn't explicitly chosen
+    if (!stored && window.matchMedia) {
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+            applyTheme(e.matches ? 'dark' : 'light');
+        });
+    }
+})();

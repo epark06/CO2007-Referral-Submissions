@@ -1,31 +1,88 @@
+:root {
+    --bg: #f0f2f5;
+    --text: #333;
+    --container-bg: #ffffff;
+    --primary: #1a73e8;
+    --primary-700: #1557b0;
+    --muted: #5f6368;
+    --input-border: #dadce0;
+    --progress-bg: #e0e0e0;
+    --progress-fore: var(--primary);
+    --tooltip-bg: #333;
+    --error: #d93025;
+    --small-text: #666;
+    --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Dark mode variables */
+body.dark-mode {
+    --bg: #0f1724;
+    --text: #e6eef8;
+    --container-bg: #07101a;
+    --primary: #4ea1ff;
+    --primary-700: #2f86ff;
+    --muted: #9aa4b2;
+    --input-border: #1f2a36;
+    --progress-bg: #16202b;
+    --progress-fore: var(--primary);
+    --tooltip-bg: #e6eef8;
+    --error: #ff6b6b;
+    --small-text: #c7d2da;
+    --box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+}
+
 body {
     font-family: 'Segoe UI', sans-serif;
-    background-color: #f0f2f5;
+    background-color: var(--bg);
     padding: 40px 20px;
-    color: #333;
+    color: var(--text);
 }
 
 .container {
     max-width: 650px;
     margin: auto;
-    background: #ffffff;
+    background: var(--container-bg);
     padding: 40px;
     border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--box-shadow);
+    position: relative; /* required for theme toggle absolute position */
+}
+
+/* Theme toggle (overrides button defaults) */
+.theme-toggle {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: auto;
+    padding: 8px 10px;
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--input-border);
+    border-radius: 8px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+.theme-toggle:hover {
+    background: rgba(255,255,255,0.04);
 }
 
 /* Headings */
 h2 {
-    color: #1a73e8;
+    color: var(--primary);
     text-align: center;
-    border-bottom: 2px solid #e8f0fe;
+    border-bottom: 2px solid rgba(0,0,0,0.05);
     padding-bottom: 15px;
+}
+
+body.dark-mode h2 {
+    border-bottom: 2px solid rgba(255,255,255,0.04);
 }
 
 h3 {
     font-size: 0.9rem;
     text-transform: uppercase;
-    color: #5f6368;
+    color: var(--muted);
     margin: 30px 0 10px;
 }
 
@@ -38,6 +95,7 @@ label {
     display: block;
     font-weight: 600;
     margin-bottom: 6px;
+    color: var(--text);
 }
 
 input,
@@ -46,8 +104,10 @@ textarea {
     width: 100%;
     padding: 12px;
     border-radius: 6px;
-    border: 1px solid #dadce0;
+    border: 1px solid var(--input-border);
     font-size: 1rem;
+    background: transparent;
+    color: var(--text);
 }
 
 textarea {
@@ -60,14 +120,14 @@ input:focus,
 textarea:focus,
 select:focus {
     outline: none;
-    border-color: #1a73e8;
-    box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2);
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.12);
 }
 
 /* Buttons */
 button {
     width: 100%;
-    background-color: #1a73e8;
+    background-color: var(--primary);
     color: white;
     padding: 14px;
     border: none;
@@ -78,14 +138,14 @@ button {
 }
 
 button:hover {
-    background-color: #1557b0;
+    background-color: var(--primary-700);
 }
 
 /* Progress bar */
 .progress-container {
     width: 100%;
     height: 10px;
-    background: #e0e0e0;
+    background: var(--progress-bg);
     border-radius: 6px;
     margin-bottom: 25px;
 }
@@ -93,7 +153,7 @@ button:hover {
 .progress-bar {
     height: 100%;
     width: 0%;
-    background: #1a73e8;
+    background: var(--progress-fore);
     border-radius: 6px;
     transition: width 0.3s ease;
 }
@@ -105,12 +165,11 @@ button:hover {
     margin: 25px 0;
 }
 
-
 /* existing styles unchanged above */
 
 /* Required star + tooltip */
 .required-star {
-    color: #d93025;
+    color: var(--error);
     margin-left: 4px;
     cursor: help;
     position: relative;
@@ -124,8 +183,8 @@ button:hover {
     bottom: 130%;
     left: 50%;
     transform: translateX(-50%);
-    background: #333;
-    color: #fff;
+    background: var(--tooltip-bg);
+    color: var(--text);
     padding: 8px 10px;
     border-radius: 6px;
     font-size: 0.75rem;
@@ -147,7 +206,7 @@ button:hover {
     transform: translateX(-50%);
     border-width: 6px;
     border-style: solid;
-    border-color: #333 transparent transparent transparent;
+    border-color: var(--tooltip-bg) transparent transparent transparent;
     opacity: 0;
     transition: opacity 0.2s ease;
 }
@@ -158,12 +217,11 @@ button:hover {
     opacity: 1;
 }
 
-
 /* ... previous styles ... */
 
 /* Error message */
 .error {
-    color: #d93025;
+    color: var(--error);
     font-size: 0.85rem;
     margin-top: 4px;
 }
@@ -183,6 +241,7 @@ button:hover {
     box-sizing: border-box; 
 }
 
+<<<<<<< HEAD
 /* Error Banner Styling */
 .error-banner {
     background-color: #fce8e6;
@@ -212,4 +271,11 @@ button:hover {
 @keyframes slideDown {
     from { opacity: 0; transform: translateY(-10px); }
     to { opacity: 1; transform: translateY(0); }
+=======
+/* Small helper text */
+small {
+    color: var(--small-text);
+    display: block;
+    margin-top: 6px;
+>>>>>>> 2dbf9c6c586d99f3602abb55a764018e33a6f20a
 }
