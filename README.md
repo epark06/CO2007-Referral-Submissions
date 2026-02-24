@@ -1,5 +1,3 @@
-Here is your content converted into a properly formatted **Markdown (.md)** file:
-
 ```md
 # Referral Form – README
 
@@ -82,5 +80,3 @@ These fields may be provided to assist with follow-up:
 | Fax Number       | Optional method of communication.                 |
 | Additional Notes | Any extra information relevant to the referral.   |
 ```
-
-If you'd like, I can also provide a cleaned, more formal version suitable for documentation publishing.
