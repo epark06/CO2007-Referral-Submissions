@@ -41,16 +41,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <body>
 
 <div class="container">
-<<<<<<< HEAD
     <div id="errorBanner" class="error-banner" style="display: none;">
         <span class="error-message">Please correct the highlighted errors before submitting.</span>
         <span class="close-banner" id="closeBanner">&times;</span>
     </div>
     
-=======
     <button id="themeToggle" class="theme-toggle" type="button" aria-pressed="false" aria-label="Toggle dark mode">🌙 Dark</button>
 
->>>>>>> 2dbf9c6c586d99f3602abb55a764018e33a6f20a
     <h2>Patient Referral Form</h2>
 
     <div class="progress-container">
