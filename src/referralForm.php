@@ -41,6 +41,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <body>
 
 <div class="container">
+    <button id="themeToggle" class="theme-toggle" type="button" aria-pressed="false" aria-label="Toggle dark mode">🌙 Dark</button>
+
     <h2>Patient Referral Form</h2>
 
     <div class="progress-container">
