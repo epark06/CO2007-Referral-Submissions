@@ -41,6 +41,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <body>
 
 <div class="container">
+    <div id="errorBanner" class="error-banner" style="display: none;">
+        <span class="error-message">Please correct the highlighted errors before submitting.</span>
+        <span class="close-banner" id="closeBanner">&times;</span>
+    </div>
+    
     <h2>Patient Referral Form</h2>
 
     <div class="progress-container">
