@@ -1,11 +1,7 @@
-<<<<<<< HEAD
 // Add these to the top of script.js with your other selections
 const errorBanner = document.getElementById("errorBanner");
 const closeBanner = document.getElementById("closeBanner");
 const form = document.getElementById("referralForm");
-=======
-﻿    const form = document.getElementById("referralForm");
->>>>>>> 2dbf9c6c586d99f3602abb55a764018e33a6f20a
 const progressBar = document.getElementById("progressBar");
 
 const fields = {

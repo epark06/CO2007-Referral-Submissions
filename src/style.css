@@ -241,7 +241,6 @@ button:hover {
     box-sizing: border-box; 
 }
 
-<<<<<<< HEAD
 /* Error Banner Styling */
 .error-banner {
     background-color: #fce8e6;
@@ -271,11 +270,11 @@ button:hover {
 @keyframes slideDown {
     from { opacity: 0; transform: translateY(-10px); }
     to { opacity: 1; transform: translateY(0); }
-=======
+}
+
 /* Small helper text */
 small {
     color: var(--small-text);
     display: block;
     margin-top: 6px;
->>>>>>> 2dbf9c6c586d99f3602abb55a764018e33a6f20a
 }
