@@ -1,3 +1,6 @@
+// Add these to the top of script.js with your other selections
+const errorBanner = document.getElementById("errorBanner");
+const closeBanner = document.getElementById("closeBanner");
 const form = document.getElementById("referralForm");
 const progressBar = document.getElementById("progressBar");
 
@@ -128,6 +131,48 @@ form.addEventListener("submit", e => {
         const firstError = document.querySelector(".error:not(:empty)");
         if (firstError) {
             firstError.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+    }
+});
+
+// Logic to dismiss the banner manually
+closeBanner.addEventListener("click", () => {
+    errorBanner.style.display = "none";
+});
+
+// Update the "Live validation" block to auto-hide the banner
+Object.values(fields).forEach(field => {
+    field.el.addEventListener("input", () => {
+        field.touched = true;
+        const isFormValid = validateAllFields();
+        
+        // Auto-hide banner if the user fixes everything
+        if (isFormValid) {
+            errorBanner.style.display = "none";
+        }
+    });
+
+    field.el.addEventListener("blur", () => {
+        field.touched = true;
+        validateAllFields();
+    });
+});
+
+// Update the submit handler to show the banner
+form.addEventListener("submit", e => {
+    Object.values(fields).forEach(f => (f.touched = true));
+
+    if (!validateAllFields()) {
+        e.preventDefault();
+        
+        // Show the banner at the top
+        errorBanner.style.display = "flex";
+        errorBanner.scrollIntoView({ behavior: "smooth", block: "start" });
+
+        const firstError = document.querySelector(".error:not(:empty)");
+        if (firstError) {
+            // Optional: You can keep the sub-field scroll or stick to the top banner
+            console.log("Validation failed; check the banner.");
         }
     }
 });
