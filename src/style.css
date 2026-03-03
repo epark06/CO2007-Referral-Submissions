@@ -8,7 +8,11 @@
     --input-border: #dadce0;
     --progress-bg: #e0e0e0;
     --progress-fore: var(--primary);
-    --tooltip-bg: #333;
+
+    /* FIXED TOOLTIP COLORS */
+    --tooltip-bg: #2b2b2b;
+    --tooltip-text: #f5f5f5;
+
     --error: #d93025;
     --small-text: #666;
     --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
@@ -25,7 +29,11 @@ body.dark-mode {
     --input-border: #1f2a36;
     --progress-bg: #16202b;
     --progress-fore: var(--primary);
-    --tooltip-bg: #e6eef8;
+
+    /* FIXED TOOLTIP COLORS */
+    --tooltip-bg: #1f2a36;
+    --tooltip-text: #e6eef8;
+
     --error: #ff6b6b;
     --small-text: #c7d2da;
     --box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
@@ -45,10 +53,10 @@ body {
     padding: 40px;
     border-radius: 12px;
     box-shadow: var(--box-shadow);
-    position: relative; /* required for theme toggle absolute position */
+    position: relative;
 }
 
-/* Theme toggle (overrides button defaults) */
+/* Theme toggle */
 .theme-toggle {
     position: fixed;
     top: 16px;
@@ -112,7 +120,7 @@ textarea {
 }
 
 textarea {
-    resize: none;        /* cannot extend */
+    resize: none;
     min-height: 120px;
     max-height: 120px;
 }
@@ -166,8 +174,6 @@ button:hover {
     margin: 25px 0;
 }
 
-/* existing styles unchanged above */
-
 /* Required star + tooltip */
 .required-star {
     color: var(--error);
@@ -185,7 +191,7 @@ button:hover {
     left: 50%;
     transform: translateX(-50%);
     background: var(--tooltip-bg);
-    color: var(--text);
+    color: var(--tooltip-text); /* FIXED */
     padding: 8px 10px;
     border-radius: 6px;
     font-size: 0.75rem;
@@ -218,8 +224,6 @@ button:hover {
     opacity: 1;
 }
 
-/* ... previous styles ... */
-
 /* Error message */
 .error {
     color: var(--error);
@@ -227,25 +231,21 @@ button:hover {
     margin-top: 4px;
 }
 
-/* Keep previous tooltip styles intact */
-
-/* Update the contact-grid in style.css */
+/* Contact grid */
 .contact-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
     margin-bottom: 10px;
 }
 
-/* Ensure inputs don't overflow their containers */
 .form-group input {
-    box-sizing: border-box; 
+    box-sizing: border-box;
 }
 
-/* Error Banner Styling with Theme Support */
+/* Error Banner */
 .error-banner {
-    /* Uses the --error variable but adds transparency for a softer look */
-    background-color: rgba(217, 48, 37, 0.1); 
+    background-color: rgba(217, 48, 37, 0.1);
     border: 1px solid var(--error);
     color: var(--error);
     padding: 12px 16px;
@@ -257,9 +257,8 @@ button:hover {
     animation: slideDown 0.3s ease-out;
 }
 
-/* Specific adjustment for Dark Mode to ensure high contrast */
 body.dark-mode .error-banner {
-    background-color: rgba(255, 107, 107, 0.15); /* Slightly brighter for dark bg */
+    background-color: rgba(255, 107, 107, 0.15);
     border-color: var(--error);
     color: var(--error);
 }
@@ -270,7 +269,7 @@ body.dark-mode .error-banner {
     cursor: pointer;
     line-height: 1;
     padding: 0 5px;
-    color: var(--error); /* Keep "X" the same color as the text */
+    color: var(--error);
 }
 
 .close-banner:hover {
