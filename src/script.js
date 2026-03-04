@@ -1,3 +1,55 @@
+window.addEventListener('load', () => {
+    let idleTimer;
+
+    function resetIdleTimer() {
+        clearTimeout(idleTimer);
+        idleTimer = setTimeout(showInactivityModal, 180000); // 3 minutes
+    }
+
+    function showInactivityModal() {
+        if (document.getElementById('idleModal')) return;
+
+        const modalHtml = `
+            <div id="idleModal" class="idle-modal-overlay">
+                <div class="idle-modal-content">
+                    <h2 style="color: var(--error); margin-top:0;">Are you still there?</h2>
+                    <p>We noticed you haven't interacted with the form for a while.</p>
+                    <p><strong>Are you in need of medical assistance?</strong></p>
+                    <div style="margin-top: 20px;">
+                        <button id="yesBtn" class="idle-btn-stay" style="margin-right:10px;">Yes</button>
+                        <button id="noBtn" class="idle-btn-stay">No</button>
+                    </div>
+                </div>
+            </div>
+        `;
+        document.body.insertAdjacentHTML('beforeend', modalHtml);
+
+        // Attach click events AFTER the modal is in the DOM
+        document.getElementById('yesBtn').addEventListener('click', () => {
+            alert("Please call emergency services immediately (999 or 111 in the UK).");
+            closeIdleModal();
+        });
+
+        document.getElementById('noBtn').addEventListener('click', () => {
+            closeIdleModal();
+        });
+    }
+
+    function closeIdleModal() {
+        const modal = document.getElementById('idleModal');
+        if (modal) modal.remove();
+        resetIdleTimer();
+    }
+
+    // Reset timer on user activity
+    ['mousemove', 'mousedown', 'keydown', 'touchstart'].forEach(evt => {
+        window.addEventListener(evt, resetIdleTimer);
+    });
+
+    // Start the timer initially
+    resetIdleTimer();
+});
+
 const errorBanner = document.getElementById("errorBanner");
 const closeBanner = document.getElementById("closeBanner");
 const form = document.getElementById("referralForm");
@@ -224,3 +276,4 @@ form.addEventListener("submit", e => {
         }
     }
 });
+
