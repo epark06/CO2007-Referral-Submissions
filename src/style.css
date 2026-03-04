@@ -287,3 +287,21 @@ small {
     display: block;
     margin-top: 6px;
 }
+
+/* Inactivity Modal Styles */
+.idle-modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.8); display: flex; justify-content: center; align-items: center;
+    z-index: 10000; backdrop-filter: blur(4px);
+}
+
+.idle-modal-content {
+    background: var(--container-bg); color: var(--text); padding: 35px; border-radius: 12px;
+    max-width: 450px; width: 90%; text-align: center; box-shadow: var(--box-shadow);
+    border: 1px solid var(--input-border);
+}
+
+.idle-btn-stay {
+    width: auto; background-color: var(--primary); color: white; padding: 12px 25px;
+    border: none; border-radius: 6px; font-weight: bold; cursor: pointer; margin-top: 15px;
+}
