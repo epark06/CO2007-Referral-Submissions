@@ -1,7 +1,8 @@
 ```md
 # Referral Form – README
 
-The referral form is used to collect and submit referral information in a structured and consistent way. This helps ensure that all required details are captured accurately.
+The referral form is used to collect and submit referral information in a structured and consistent way.
+This helps ensure that all required details are captured accurately.
 
 ## Information Collected
 
@@ -10,11 +11,11 @@ The form collects:
 - **Referring Physician Information**
   - Physician’s full name
   - Clinic name
+  - Fax number (optional)
 
-- **Contact Information** (optional)
+- **Contact Information**
   - Phone number
   - Email address
-  - Fax number
 
 - **Patient Details**
   - Patient’s full name
@@ -63,6 +64,8 @@ These fields must be completed before submission:
 | Referring Physician Name  | Full name of the physician making the referral.             |
 | Clinic Name               | Name of the clinic associated with the referring physician. |
 | Patient Full Name         | Must include first and last name, as in official records.   |
+| Phone Number              | Contact number for follow-up if required.                   |
+| Email Address             | Preferred contact email.                                    |
 | Patient Date of Birth     | Must be accurate for proper identification.                 |
 | Urgency Level             | Routine, Urgent, or Immediate.                              |
 | Reason for Referral       | Maximum 500 characters; clearly explain the reason.         |
@@ -75,8 +78,6 @@ These fields may be provided to assist with follow-up:
 
 | Field            | Notes                                             |
 |------------------|---------------------------------------------------|
-| Phone Number     | Contact number for follow-up if required.         |
-| Email Address    | Preferred contact email.                          |
 | Fax Number       | Optional method of communication.                 |
-| Additional Notes | Any extra information relevant to the referral.   |
+
 ```
