@@ -58,8 +58,8 @@ Verify all information for accuracy before submitting the form.
 
 These fields must be completed before submission:
 
-| Field                     | Notes                                                         |
-|---------------------------|--------------------------------------------------------------|
+| Field                     | Notes                                                       |
+|---------------------------|-------------------------------------------------------------|
 | Referring Physician Name  | Full name of the physician making the referral.             |
 | Clinic Name               | Name of the clinic associated with the referring physician. |
 | Patient Full Name         | Must include first and last name, as in official records.   |
@@ -73,7 +73,7 @@ These fields must be completed before submission:
 
 These fields may be provided to assist with follow-up:
 
-| Field            | Notes                                              |
+| Field            | Notes                                             |
 |------------------|---------------------------------------------------|
 | Phone Number     | Contact number for follow-up if required.         |
 | Email Address    | Preferred contact email.                          |
