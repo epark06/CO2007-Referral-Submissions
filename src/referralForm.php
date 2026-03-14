@@ -40,6 +40,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 </head>
 <body>
 
+<header class="main-header">
+    <div class="header-content">
+        <img src="health-matter.jpg" alt="Health Matters Logo" class="header-logo">
+        <h1 class="header-title">Health Matters</h1>
+    </div>
+</header>
+
 <div class="container">
     <div id="errorBanner" class="error-banner" style="display: none;">
         <span class="error-message">Please correct the highlighted errors before submitting.</span>
