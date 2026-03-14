@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <header class="main-header">
     <div class="header-content">
-        <img src="health-matter.jpg" alt="Health Matters Logo" class="header-logo">
+        <img src="img/health-matter.jpg" alt="Health Matters Logo" class="header-logo">
         <h1 class="header-title">Health Matters</h1>
     </div>
 </header>
