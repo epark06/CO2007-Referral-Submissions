@@ -42,18 +42,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <header class="main-header">
     <div class="header-content">
-        <img src="img/health-matter.jpg" alt="Health Matters Logo" class="header-logo">
+        <img src="img/health-matters.jpg" alt="Health Matters Logo" class="header-logo">
         <h1 class="header-title">Health Matters</h1>
     </div>
 </header>
+
+<button id="themeToggle" class="theme-toggle" type="button" aria-pressed="false" aria-label="Toggle dark mode">🌙 Dark</button>
 
 <div class="container">
     <div id="errorBanner" class="error-banner" style="display: none;">
         <span class="error-message">Please correct the highlighted errors before submitting.</span>
         <span class="close-banner" id="closeBanner">&times;</span>
     </div>
-    
-    <button id="themeToggle" class="theme-toggle" type="button" aria-pressed="false" aria-label="Toggle dark mode">🌙 Dark</button>
 
     <h2>Patient Referral Form</h2>
 

@@ -1,33 +1,32 @@
 /* Header Styling */
 .main-header {
-    background-color: var(--primary);
+    background-color: var(--primary); /* #156082 */
     color: #ffffff;
-    padding: 15px 20px;
-    margin-bottom: 30px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px 0;
+    width: 100%;
     display: flex;
-    justify-content: center; /* Centers the content block */
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    margin: 0; /* Ensure no margin around the header */
 }
 
 .header-content {
     display: flex;
     align-items: center;
-    max-width: 650px; /* Matches your .container width */
-    width: 100%;
-    gap: 20px;
+    max-width: 60%;
+    width: 90%; /* Responsive width */
+    gap: 15px;
 }
 
 .header-logo {
-    height: 60px;
+    height: 14em;
     width: auto;
     border-radius: 4px;
 }
 
 .header-title {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     margin: 0;
-    font-weight: 700;
-    letter-spacing: -0.5px;
 }
 
 body.dark-mode .main-header {
@@ -87,13 +86,15 @@ body.dark-mode {
 body {
     font-family: 'Segoe UI', sans-serif;
     background-color: var(--bg);
-    padding: 40px 20px;
+    padding: 0 0 40px 0; /* Top padding set to 0 */
+    margin: 0;
     color: var(--text);
 }
 
 .container {
     max-width: 650px;
     margin: auto;
+    margin-top: 20px;
     background: var(--container-bg);
     padding: 40px;
     border-radius: 12px;
@@ -103,7 +104,7 @@ body {
 
 /* Theme toggle */
 .theme-toggle {
-    position: fixed;
+    position: static;
     top: 16px;
     right: 16px;
     width: auto;
