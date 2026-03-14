@@ -2,14 +2,18 @@
     --bg: #f0f2f5;
     --text: #333;
     --container-bg: #ffffff;
-    --primary: #1a73e8;
-    --primary-700: #1557b0;
+    
+    /* REFACTORED BLUE SCALED FROM #156082 */
+    --primary: #156082;        /* New Base Blue */
+    --primary-700: #0f4a65;    /* Darker shade for hover */
+    --primary-light: #e8f0f3;  /* Very light tint for backgrounds/banners */
+    --primary-glow: rgba(21, 96, 130, 0.15); /* For focus rings */
+
     --muted: #5f6368;
     --input-border: #dadce0;
     --progress-bg: #e0e0e0;
     --progress-fore: var(--primary);
 
-    /* FIXED TOOLTIP COLORS */
     --tooltip-bg: #2b2b2b;
     --tooltip-text: #f5f5f5;
 
@@ -23,14 +27,17 @@ body.dark-mode {
     --bg: #0f1724;
     --text: #e6eef8;
     --container-bg: #07101a;
-    --primary: #4ea1ff;
-    --primary-700: #2f86ff;
+    
+    /* REFACTORED BLUE FOR DARK MODE */
+    --primary: #3a91b8;        /* Lightened base for accessibility on dark backgrounds */
+    --primary-700: #5cb0d6;    /* Brighter shade for dark mode hover */
+    --primary-glow: rgba(58, 145, 184, 0.25);
+
     --muted: #9aa4b2;
     --input-border: #1f2a36;
     --progress-bg: #16202b;
     --progress-fore: var(--primary);
 
-    /* FIXED TOOLTIP COLORS */
     --tooltip-bg: #1f2a36;
     --tooltip-text: #e6eef8;
 
