@@ -41,10 +41,10 @@ body.dark-mode .main-header {
     --container-bg: #ffffff;
     
     /* REFACTORED BLUE SCALED FROM #156082 */
-    --primary: #156082;        /* New Base Blue */
-    --primary-700: #0f4a65;    /* Darker shade for hover */
-    --primary-light: #e8f0f3;  /* Very light tint for backgrounds/banners */
-    --primary-glow: rgba(21, 96, 130, 0.15); /* For focus rings */
+    --primary: #156082;
+    --primary-700: #0f4a65;
+    --primary-light: #e8f0f3;
+    --primary-glow: rgba(21, 96, 130, 0.15);
 
     --muted: #5f6368;
     --input-border: #dadce0;
@@ -65,9 +65,8 @@ body.dark-mode {
     --text: #e6eef8;
     --container-bg: #07101a;
     
-    /* REFACTORED BLUE FOR DARK MODE */
-    --primary: #3a91b8;        /* Lightened base for accessibility on dark backgrounds */
-    --primary-700: #5cb0d6;    /* Brighter shade for dark mode hover */
+    --primary: #3a91b8;
+    --primary-700: #5cb0d6;
     --primary-glow: rgba(58, 145, 184, 0.25);
 
     --muted: #9aa4b2;
@@ -86,7 +85,7 @@ body.dark-mode {
 body {
     font-family: 'Segoe UI', sans-serif;
     background-color: var(--bg);
-    padding: 0 0 40px 0; /* Top padding set to 0 */
+    padding: 0 0 40px 0;
     margin: 0;
     color: var(--text);
 }
@@ -165,6 +164,13 @@ textarea {
     color: var(--text);
 }
 
+/* Fix dropdown visibility in dark mode */
+body.dark-mode select {
+    background-color: var(--container-bg);
+    color: var(--text);
+    border-color: var(--input-border);
+}
+
 textarea {
     resize: none;
     min-height: 120px;
@@ -237,7 +243,7 @@ button:hover {
     left: 50%;
     transform: translateX(-50%);
     background: var(--tooltip-bg);
-    color: var(--tooltip-text); /* FIXED */
+    color: var(--tooltip-text);
     padding: 8px 10px;
     border-radius: 6px;
     font-size: 0.75rem;
@@ -250,7 +256,6 @@ button:hover {
     text-align: left;
 }
 
-/* Tooltip arrow */
 .required-star::before {
     content: "";
     position: absolute;
@@ -264,7 +269,6 @@ button:hover {
     transition: opacity 0.2s ease;
 }
 
-/* Show tooltip on hover */
 .required-star:hover::after,
 .required-star:hover::before {
     opacity: 1;
@@ -327,7 +331,6 @@ body.dark-mode .error-banner {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Small helper text */
 small {
     color: var(--small-text);
     display: block;
@@ -336,18 +339,39 @@ small {
 
 /* Inactivity Modal Styles */
 .idle-modal-overlay {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.8); display: flex; justify-content: center; align-items: center;
-    z-index: 10000; backdrop-filter: blur(4px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    backdrop-filter: blur(4px);
 }
 
 .idle-modal-content {
-    background: var(--container-bg); color: var(--text); padding: 35px; border-radius: 12px;
-    max-width: 450px; width: 90%; text-align: center; box-shadow: var(--box-shadow);
+    background: var(--container-bg);
+    color: var(--text);
+    padding: 35px;
+    border-radius: 12px;
+    max-width: 450px;
+    width: 90%;
+    text-align: center;
+    box-shadow: var(--box-shadow);
     border: 1px solid var(--input-border);
 }
 
 .idle-btn-stay {
-    width: auto; background-color: var(--primary); color: white; padding: 12px 25px;
-    border: none; border-radius: 6px; font-weight: bold; cursor: pointer; margin-top: 15px;
+    width: auto;
+    background-color: var(--primary);
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
 }
