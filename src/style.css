@@ -30,7 +30,7 @@
 }
 
 body.dark-mode .main-header {
-    background-color: var(--container-bg); /* Darker blue/black for dark mode */
+    background-color: var(--primary); /* Darker blue/black for dark mode */
     border-bottom: 1px solid var(--input-border);
 }
 
