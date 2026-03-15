@@ -351,3 +351,10 @@ small {
     width: auto; background-color: var(--primary); color: white; padding: 12px 25px;
     border: none; border-radius: 6px; font-weight: bold; cursor: pointer; margin-top: 15px;
 }
+
+
+/* Fix dropdown option visibility in dark mode */
+body.dark-mode select option {
+    background-color: var(--container-bg);
+    color: var(--text);
+}
