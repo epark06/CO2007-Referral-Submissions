@@ -1,4 +1,8 @@
 <?php
+session_start();if (!isset($_SESSION['user'])) {
+    header("Location: login.php");
+    exit;
+}
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     function clean($value) {
         return htmlspecialchars($value ?? '');
